@@ -37,6 +37,10 @@
 			//let imageindex = this.dataset.imageref;
 			//newimagepath = `url(images/dd/backGround${imageindex}.jpg)`;
 		dropContainer.style.backgroundImage = `url(images/dd/backGround${this.dataset.imageref}.jpg)`;
+		dragImages.forEach(picture => {
+			picture.src = `images/dd/${picture.id}${this.dataset.imageref}.jpg`;
+		});
+
 	}
 
 // event handling at the bottom
