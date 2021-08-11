@@ -5,7 +5,8 @@
 	const puzzleSelectors = document.querySelectorAll("#buttonHolder img"),
 				dropContainer = document.querySelector(".puzzle-board"),
 				dragImages = document.querySelectorAll(".puzzle-image"),
-				dropZones = document.querySelectorAll(".drop-zone");
+				dropZones = document.querySelectorAll(".drop-zone"),
+				originalbox = document.querySelector(".puzzle-pieces");
 
 	// functions go in the middle
 	function startDrag(event) {
@@ -45,9 +46,21 @@
 		dropContainer.style.backgroundImage = `url(images/dd/backGround${this.dataset.imageref}.jpg)`;
 		dragImages.forEach(picture => {
 			picture.src = `images/dd/${picture.id}${this.dataset.imageref}.jpg`;
+			// Reset pieces function //
 		});
-
 	}
+	function resetPuzzle() {
+		 dropZones.forEach(zone => {
+		// 	if (zone.hasChildNodes(dragImages)) {
+		// 		zone.removeChild(zone.children[dragImages]);
+		// 	}
+
+				if (zone.firstChild) {
+					originalbox.appendChild(zone.firstChild) }
+				else {	return;	};
+		 });
+
+		}
 
 // event handling at the bottom
 	dragImages.forEach(piece => {
@@ -61,5 +74,6 @@
 
 	puzzleSelectors.forEach(button => {
 		button.addEventListener('click', imageflip);
+		button.addEventListener('click', resetPuzzle);
 	});
 })();
