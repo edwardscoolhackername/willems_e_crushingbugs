@@ -30,8 +30,8 @@
 		//retrieve whatever element was grabbed
 		//event.dataTransfer.getData("dragTarget");
 		dropZones.forEach(zone => {
-			if (targetImage.id === zone.dataset.dropbox) {
-				this.appendChild(targetImage)
+			if (this.dataset.dropbox == targetImage.dataset.puzzlepiece) {
+					this.appendChild(targetImage)
 			}
 			else { return; };
 		});
