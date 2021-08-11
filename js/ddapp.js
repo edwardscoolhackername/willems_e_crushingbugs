@@ -29,8 +29,14 @@
 		let targetImage = document.querySelector(`#${event.dataTransfer.getData('dragTarget')}`);
 		//retrieve whatever element was grabbed
 		//event.dataTransfer.getData("dragTarget");
-		this.appendChild(targetImage);
+		dropZones.forEach(zone => {
+			if (this.dataset.dropbox == targetImage.dataset.puzzlepiece) {
+					this.appendChild(targetImage)
+			}
+			else { return; };
+		});
 	}
+
 	function imageflip() {
 		//Click thumbnail image to switch out puzzle pieces
 		//update the background image of the drop zone container
