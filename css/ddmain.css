@@ -95,3 +95,9 @@ footer {
 }
 
 #buttonHolder img:hover { opacity: .5; }
+
+.drop-zone img {
+	width: 101%;
+	height: 101%;
+	margin: -2%;
+}
